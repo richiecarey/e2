@@ -2,18 +2,27 @@
 
 $title = 'Project 1';
 
-# https://en.wikipedia.org/wiki/Playing_cards_in_Unicode
-$deck = [
+# Construct a standard 52 card deck of cards
+$composition = [
     'suit' => ['♠','♣','♦','♥'],
     'rank' => ['A','2','3','4','5','6','7','8','9','10','J','Q','K']    
 ];
-
-foreach($deck['suit'] as $suit) {
-    foreach($deck['rank'] as $rank) {
-        $hand[] = $rank.$suit;
+foreach($composition['suit'] as $suit) {
+    foreach($composition['rank'] as $rank) {
+        $deck[] = [
+            'rank' => $rank,
+            'suit' => $suit
+        ];
     }
 }
 
-//shuffle($hand);
+# Shuffle the deck
+shuffle($deck);
+
+# Deal the cards
+while($deck) {
+    $player1[] = array_shift($deck);
+    $player2[] = array_shift($deck);
+}
 
 require 'index-view.php';

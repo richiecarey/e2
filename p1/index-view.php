@@ -10,7 +10,9 @@
     <h1>Project 1</h1>
     <section class="border-2 border-indigo-600 mb-8 mt-8 p-4">
         <pre>
-<?php var_dump($hand) ?>
+<?php var_dump($deck) ?>
+<?php var_dump($player1) ?>
+<?php var_dump($player2) ?>
         </pre>
     </section>
     <h2>Mechanics</h2>
@@ -18,8 +20,17 @@
             <li>...</li>
         </ul>
     <h2>Results</h2>
-        <ul>
-            <li>...</li>
-        </ul>
+    <ul>
+        <li>...</li>
+    </ul>
+    <h2>Resources</h2>
+    <ul>
+        <li>
+            <a href="https://en.wikipedia.org/wiki/Playing_cards_in_Unicode">Playing cards in Unicode</a>
+        </li>
+        <li>
+            <a href="https://en.wikipedia.org/wiki/Standard_52-card_deck">Standard 52-card deck</a>
+        </li>
+    </ul>
 </body>
 </html>
