@@ -51,4 +51,9 @@ while($player1 and $player2) {
     }
 }
 
+$game[] = [
+    'player one' => $player1_card,
+    'player two' => $player2_card,
+];
+
 require 'index-view.php';
