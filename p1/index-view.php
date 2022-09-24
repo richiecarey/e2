@@ -9,11 +9,16 @@
 <body>
     <h1>Project 1</h1>
     <section class="border-2 border-indigo-600 mb-8 mt-8 p-4">
-        <pre>
-<?php var_dump($deck) ?>
-<?php var_dump($player1) ?>
-<?php var_dump($player2) ?>
-        </pre>
+        <?php 
+        
+        // $foo = ['a','b','c'];
+        // $bar = ['d','e'];
+        // $fred = ['f','g'];
+        // // $foo[] = $bar;
+        // // $foo[] = $fred;
+        // $foo = array_merge($foo, $bar);
+        // echo "<h2>" . var_dump($foo) . "</h2>";
+        ?>
     </section>
     <h2>Mechanics</h2>
         <ul>
