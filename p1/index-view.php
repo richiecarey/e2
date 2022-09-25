@@ -8,18 +8,7 @@
 </head>
 <body>
     <h1>Project 1</h1>
-    <section class="border-2 border-indigo-600 mb-8 mt-8 p-4">
-        <?php 
-        
-        // $foo = ['a','b','c'];
-        // $bar = ['d','e'];
-        // $fred = ['f','g'];
-        // // $foo[] = $bar;
-        // // $foo[] = $fred;
-        // $foo = array_merge($foo, $bar);
-        // echo "<h2>" . var_dump($foo) . "</h2>";
-        ?>
-    </section>
+    <h2><?php echo "Count: " . $i; ?></h2>
     <h2>Mechanics</h2>
         <ul>
             <li>...</li>
@@ -37,5 +26,28 @@
             <a href="https://en.wikipedia.org/wiki/Standard_52-card_deck">Standard 52-card deck</a>
         </li>
     </ul>
+    <section class="border-2 border-indigo-600 mb-8 mt-8 p-4">
+    <table>
+        <?php foreach($game as $round => $outcome) { ?>
+        <tr>
+            <td>
+            <?php echo($outcome['player one']['rank'].$outcome['player one']['suit']) ?>
+            </td>
+            <td>
+            <?php echo($outcome['player two']['rank'].$outcome['player two']['suit']) ?>
+            </td>
+            <td>
+            <?php echo($outcome['winner']) ?>
+            </td>
+            <td>
+            <?php echo($outcome['player one cards left']) ?>
+            </td>
+            <td>
+            <?php echo($outcome['player two cards left']) ?>
+            </td>
+        </tr>
+        <?php } ?>
+        </table>
+    </section>
 </body>
 </html>
