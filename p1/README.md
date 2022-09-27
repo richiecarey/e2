@@ -8,4 +8,9 @@ See: https://gist.github.com/susanBuck/02735328485030bdc28200a8db9569f5
 
 ## Outside resources
 
+https://en.wikipedia.org/wiki/Playing_cards_in_Unicode
+
+https://en.wikipedia.org/wiki/Standard_52-card_deck
+
+
 ## Notes for instructor
