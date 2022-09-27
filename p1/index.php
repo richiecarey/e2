@@ -1,7 +1,7 @@
 <?php
 
 $title = 'Project 1';
-
+$outcome = ['tie','player one','player two'];
 $game = [];
 
 # Construct a standard 52 card deck of cards
@@ -31,36 +31,47 @@ while($deck) {
 
 # Play
 $i = 0;
-// while($player1 and $player2) {
-while($i < 5000) {
+while(($player1 and $player2) and $i < 500) {
     $i++;
+    shuffle($player1);
+    shuffle($player2);
 
     $player1_card = array_shift($player1);
     $player2_card = array_shift($player2);
 
-    $winner = "";
-
-    if (($player1_card['value'] == $player2_card['value'])) {
-        $winner = "tie";
-    }
     if ($player1_card['value'] > $player2_card['value']) {
-        $winner = "player one<br>";
+        $result = $outcome[1];
         $player1[] = $player1_card;
         $player1[] = $player2_card;
     }
     elseif ($player1_card['value'] < $player2_card['value']) {
-        $winner = "player two<br>";
+        $result = $outcome[2];
         $player2[] = $player1_card;
         $player2[] = $player2_card;
     }
-
+    else {
+        $result = $outcome[0];
+    }
     $game[] = [
+        'round' => $i,
         'player one' => $player1_card,
         'player two' => $player2_card,
-        'player one cards left' => count($player1),
-        'player two cards left' => count($player2),
-        'winner' => $winner,
+        'player one cards' => count($player1),
+        'player two cards' => count($player2),
+        'result' => $result
     ];
 }
+
+if (count($player1) > count($player2)) {
+    $winner = $outcome[1];
+}
+elseif (count($player1) < count($player2)) {
+    $winner = $outcome[2];
+}
+else {
+    $winner = $outcome[0];
+}
+
+$winner = ucwords($winner);
 
 require 'index-view.php';
