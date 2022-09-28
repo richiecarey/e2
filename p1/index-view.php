@@ -21,8 +21,8 @@
         <section class="p-2">
             <h2 class="text-2xl">Results</h2>
 	            <ul class="list-disc pl-6 pb-2">
-	                <li>Rounds: <?php echo $i ?></li>
-	                <li class="text-[#a51c30]">Game Winner: <?php echo $winner ?></li>
+                    <li class="text-blue-700">Game Winner: <?php echo $winner ?></li>
+                    <li>Rounds: <?php echo $i ?></li>
 	            </ul>
             <h2 class="text-2xl">Mechanics</h2>
                 <ul class="list-disc pl-6 pb-2">
@@ -42,7 +42,7 @@
             </ul>
         </section>
         <section class="grid mb-8 mt-8 p-4 place-items-center text-xs md:text-base">
-            <h2 class="mb-2 text-2xl text-[#a51c30]">Game Winner: <?php echo $winner ?></h2>
+            <h2 class="mb-2 text-2xl text-blue-700">Game Winner: <?php echo $winner ?></h2>
             <table class="table-fixed min-w-[99%] md:min-w-[75%] text-center">
                 <thead>
                     <tr class="bg-gray-900 text-zinc-50">
@@ -57,12 +57,24 @@
                 <tbody>
                     <?php foreach($game as $round => $outcome) { ?>
                     <tr class="odd:bg-slate-200 hover:bg-yellow-100">
-                        <td><?php echo($outcome['round']) ?></td>
-                        <td><?php echo($outcome['player one']) ?></td>
-                        <td><?php echo($outcome['player two']) ?></td>
-                        <td><?php echo($outcome['player one cards']) ?></td>
-                        <td><?php echo($outcome['player two cards']) ?></td>
-                        <td><?php echo($outcome['result']) ?></td>
+                        <td>
+                            <?php echo($outcome['round']) ?>
+                        </td>
+                        <td class="<?php echo($outcome['player one card style']) ?>">
+                            <?php echo($outcome['player one card']) ?>
+                        </td>
+                        <td class="<?php echo($outcome['player two card style']) ?>">
+                            <?php echo($outcome['player two card']) ?>
+                        </td>
+                        <td>
+                            <?php echo($outcome['player one card count']) ?>
+                        </td>
+                        <td>
+                            <?php echo($outcome['player two card count']) ?>
+                        </td>
+                        <td>
+                            <?php echo($outcome['result']) ?>
+                        </td>
                     </tr>
                     <?php } ?>
                 </tbody>

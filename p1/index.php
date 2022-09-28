@@ -1,12 +1,21 @@
 <?php
 
+# Initiate an array to hold game results
+$game = [];
+
+# Set some global variables
 $title = 'Richie Carey | Project 1 | DGMD E-2';
 $outcome = ['tie','player one','player two'];
-$game = [];
+$color = [
+    '♠' => 'text-gray-900',
+    '♣' => 'text-gray-900',
+    '♦' => 'text-red-500',
+    '♥' => 'text-red-500'
+];
 
 # Construct a standard 52 card deck of cards
 $standard = [
-    'suit' => ['♠','♣','♢','♡'],
+    'suit' => ['♠','♣','♦','♥'],
     'rank' => ['A','2','3','4','5','6','7','8','9','10','J','Q','K']
 ];
 
@@ -33,6 +42,7 @@ while($deck) {
 $i = 0;
 while(($player1 and $player2) and $i < 500) {
     $i++;
+    
     shuffle($player1);
     shuffle($player2);
 
@@ -54,10 +64,12 @@ while(($player1 and $player2) and $i < 500) {
     }
     $game[] = [
         'round' => $i,
-        'player one' => $player1_card['rank'].$player1_card['suit'],
-        'player two' => $player2_card['rank'].$player2_card['suit'],
-        'player one cards' => count($player1),
-        'player two cards' => count($player2),
+        'player one card' => $player1_card['rank'].$player1_card['suit'],
+        'player one card style' => $color[$player1_card['suit']],
+        'player one card count' => count($player1),
+        'player two card' => $player2_card['rank'].$player2_card['suit'],
+        'player two card style' => $color[$player2_card['suit']],
+        'player two card count' => count($player2),
         'result' => $result
     ];
 }
