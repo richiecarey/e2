@@ -21,8 +21,8 @@
         <section class="p-2">
             <h2 class="text-2xl">Results</h2>
 	            <ul class="list-disc pl-6 pb-2">
-	                <li class="text-[#a51c30]">Game Winner: <?php echo $winner ?></li>
 	                <li>Rounds: <?php echo $i ?></li>
+	                <li class="text-[#a51c30]">Game Winner: <?php echo $winner ?></li>
 	            </ul>
             <h2 class="text-2xl">Mechanics</h2>
                 <ul class="list-disc pl-6 pb-2">
