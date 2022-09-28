@@ -9,13 +9,13 @@
 </head>
 
 <body class="bg-slate-50 text-lg">
-    <header class="bg-[#a51c30] md:mb-1 md:grid md:grid-cols-1 md:justify-items-stretch p-2 text-zinc-50">
+    <header class="bg-[#a51c30] md:grid md:grid-cols-1 md:justify-items-stretch p-2 text-zinc-50">
         <div class="md:flex md:items-center md:justify-self-start">
             <h1 class="text-2xl md:text-3xl">(Similar to the card game) War</h1>
         </div>
     </header>
-    <section class="grid mb-8 md:p-4 place-items-center text-xs md:text-base">
-        <div class="bg-yellow-50 min-w-[75%] p-3">
+    <section class="bg-slate-200 grid mb-8 p-2 md:p-4 place-items-center text-xs md:text-base">
+        <div class="min-w-[75%] p-3">
             <h2 class="text-2xl">DGMD E-2</h2>
             <ul class="list-disc pb-2 pl-6">
                 <li><a href="mailto:richiecarey@gmail.com">Richie Carey</a></li>
