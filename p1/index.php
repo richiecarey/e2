@@ -1,12 +1,12 @@
 <?php
 
-$title = 'Project 1';
+$title = 'Richie Carey | Project 1 | DGMD E-2';
 $outcome = ['tie','player one','player two'];
 $game = [];
 
 # Construct a standard 52 card deck of cards
 $standard = [
-    'suit' => ['♠','♣','♦','♥'],
+    'suit' => ['♠','♣','♢','♡'],
     'rank' => ['A','2','3','4','5','6','7','8','9','10','J','Q','K']
 ];
 
@@ -54,8 +54,8 @@ while(($player1 and $player2) and $i < 500) {
     }
     $game[] = [
         'round' => $i,
-        'player one' => $player1_card,
-        'player two' => $player2_card,
+        'player one' => $player1_card['rank'].$player1_card['suit'],
+        'player two' => $player2_card['rank'].$player2_card['suit'],
         'player one cards' => count($player1),
         'player two cards' => count($player2),
         'result' => $result
