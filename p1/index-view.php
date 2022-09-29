@@ -14,11 +14,11 @@
             <h1 class="text-2xl md:text-3xl">(Similar to the card game) War</h1>
         </div>
     </header>
-    <section class="bg-slate-200 grid mb-8 p-2 md:p-4 place-items-center text-xs md:text-base">
-        <div class="min-w-[75%] p-3">
+    <section class="grid mb-4 md:py-2 md:mt-2 place-items-center text-xs md:text-base">
+        <div class="bg-slate-200 min-w-[75%] p-4">
             <h2 class="text-2xl">DGMD E-2</h2>
             <ul class="list-disc pb-2 pl-6">
-                <li><a href="mailto:richiecarey@gmail.com">Richie Carey</a></li>
+                <li><a class="underline hover:bg-yellow-100" href="mailto:richiecarey@gmail.com">Richie Carey</a></li>
                 <li>Project 1</li>
             </ul>
             <h2 class="text-2xl">Results</h2>
@@ -44,7 +44,7 @@
             </ul>
         </div>
     </section>
-    <section class="grid mb-8 mt-8 md:p-4 place-items-center text-xs md:text-base">
+    <section class="grid mb-8 md:pl-4 md:pr-4 place-items-center text-xs md:text-base">
         <h2 class="mb-2 text-2xl text-blue-700">Game Winner: <?php echo $winner ?></h2>
         <table class="table-fixed min-w-[99%] md:min-w-[75%] text-center">
             <thead>
