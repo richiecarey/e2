@@ -9,13 +9,14 @@
 </head>
 
 <body class="bg-slate-50 text-lg">
-    <header class="bg-[#a51c30] md:grid md:grid-cols-1 md:justify-items-stretch p-2 text-zinc-50">
-        <div class="md:flex md:items-center md:justify-self-start">
+    <header class="bg-[#a51c30] p-2 text-zinc-50">
+        <div class="flex flex-row items-center justify-between m-auto max-w-screen-xl">
             <h1 class="text-2xl md:text-3xl">(Similar to the card game) War</h1>
+            <p class="text-sm">Richie Carey</p>
         </div>
     </header>
-    <section class="grid mb-4 md:py-2 md:mt-2 place-items-center text-xs md:text-base">
-        <div class="bg-slate-200 min-w-[75%] p-4">
+    <section class="grid m-auto mb-4 md:py-2 md:mt-2 place-items-center text-xs md:text-base max-w-screen-xl">
+        <div class="bg-slate-200 min-w-[100%] p-4">
             <h2 class="text-2xl">DGMD E-2</h2>
             <ul class="list-disc pb-2 pl-6">
                 <li><a class="underline hover:bg-yellow-100" href="mailto:richiecarey@gmail.com">Richie Carey</a></li>
@@ -44,9 +45,9 @@
             </ul>
         </div>
     </section>
-    <section class="grid mb-8 md:pl-4 md:pr-4 place-items-center text-xs md:text-base">
+    <section class="grid m-auto mb-8 place-items-center text-xs md:text-base max-w-screen-xl">
         <h2 class="mb-2 text-2xl text-blue-700">Game Winner: <?php echo $winner ?></h2>
-        <table class="table-fixed min-w-[99%] md:min-w-[75%] text-center">
+        <table class="table-fixed min-w-[99%] md:min-w-[100%] text-center">
             <thead>
                 <tr class="bg-gray-900 text-zinc-50">
                     <th>Round</th>
