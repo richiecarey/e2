@@ -11,21 +11,20 @@
 <body class="bg-slate-50 text-lg">
     <header class="bg-[#a51c30] p-2 text-zinc-50">
         <div class="flex flex-row items-center justify-between m-auto max-w-screen-xl">
-            <h1 class="text-2xl md:text-3xl">(Similar to the card game) War</h1>
-            <p class="text-sm">Richie Carey</p>
+            <h1 class="md:text-2xl text-xl">(Similar to the card game) War</h1>
+            <p class=" md:text-sm text-xs"><a class="underline hover:text-blue-100" href="mailto:richiecarey@gmail.com">Richie Carey</a></p>
         </div>
     </header>
     <section class="grid m-auto mb-4 md:py-2 md:mt-2 place-items-center text-xs md:text-base max-w-screen-xl">
         <div class="bg-slate-200 min-w-[100%] p-4">
             <h2 class="text-2xl">DGMD E-2</h2>
             <ul class="list-disc pb-2 pl-6">
-                <li><a class="underline hover:bg-yellow-100" href="mailto:richiecarey@gmail.com">Richie Carey</a></li>
                 <li>Project 1</li>
             </ul>
             <h2 class="text-2xl">Results</h2>
             <ul class="list-disc pb-2 pl-6">
                 <li><span class="text-blue-700">Game Winner: <?php echo $winner ?></span></li>
-                <li>Rounds: <?php echo $i ?></li>
+                <li>Rounds: <?php echo $round ?></li>
             </ul>
             <h2 class="text-2xl">Mechanics</h2>
             <ul class="list-disc pb-2 pl-6">
@@ -84,7 +83,7 @@
             </tbody>
         </table>
     </section>
-    <footer class="pb-8 pt-8 text-center border-t-2">
+    <footer class="bg-slate-200 pb-8 pt-8 text-center">
         <p>Project 1 &#183; DGMD E-2</p>
         <p>Richie Carey</p>
     </footer>
