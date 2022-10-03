@@ -37,9 +37,9 @@
             </ul>
             <h2 class="text-2xl">Resources</h2>
             <ul class="list-disc italic pb-2 pl-6">
-                <li><a class="no-underline hover:underline" href="https://en.wikipedia.org/wiki/Playing_cards_in_Unicode" target="_blank" rel="noopener noreferrer">Playing cards in Unicode</a></li>
-                <li><a class="no-underline hover:underline" href="https://en.wikipedia.org/wiki/Standard_52-card_deck" target="_blank" rel="noopener noreferrer">Standard 52-card deck</a></li>
                 <li><a class="no-underline hover:underline" href="https://www.php.net/" target="_blank" rel="noopener noreferrer">PHP.net</a></li>
+                <li><a class="no-underline hover:underline" href="https://en.wikipedia.org/wiki/Playing_cards_in_Unicode" target="_blank" rel="noopener noreferrer">Playing cards in Unicode - Wikipedia</a></li>
+                <li><a class="no-underline hover:underline" href="https://en.wikipedia.org/wiki/Standard_52-card_deck" target="_blank" rel="noopener noreferrer">Standard 52-card deck - Wikipedia</a></li>
                 <li><a class="no-underline hover:underline" href="https://www.wimpyprogrammer.com/the-statistics-of-war-the-card-game" target="_blank" rel="noopener noreferrer">The Statistics of War (the card game)</a></li>
             </ul>
         </div>
