@@ -29,10 +29,10 @@
 
 ## Outside resources
 
-[PHP.net](https://www.php.net/)
+-   _[PHP.net](https://www.php.net/)_
 
-[Playing cards in Unicode - Wikipedia](https://en.wikipedia.org/wiki/Playing_cards_in_Unicode)
+-   _[Playing cards in Unicode - Wikipedia](https://en.wikipedia.org/wiki/Playing_cards_in_Unicode)_
 
-[Standard 52-card deck - Wikipedia](https://en.wikipedia.org/wiki/Standard_52-card_deck)
+-   _[Standard 52-card deck - Wikipedia](https://en.wikipedia.org/wiki/Standard_52-card_deck)_
 
-[The Statistics of War (the card game)](https://www.wimpyprogrammer.com/the-statistics-of-war-the-card-game)
+-   _[The Statistics of War (the card game)](https://www.wimpyprogrammer.com/the-statistics-of-war-the-card-game)_
