@@ -2,7 +2,8 @@
 <html lang='en'>
 
 <head>
-    <title><?php echo $title ?></title>
+    <title><?php echo $title ?>
+    </title>
     <meta charset='utf-8'>
     <script src="https://cdn.tailwindcss.com"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,11 +13,13 @@
     <header class="bg-[#a51c30] p-2 text-zinc-50">
         <div class="flex flex-row items-center justify-between m-auto max-w-screen-xl">
             <h1 class="md:text-2xl text-xl">(Similar to the card game) War</h1>
-            <p class=" md:text-sm text-xs"><a class="underline hover:text-blue-100" href="mailto:richiecarey@gmail.com">Richie Carey</a></p>
+            <p class=" md:text-sm text-xs"><a class="underline hover:text-blue-100"
+                    href="mailto:richiecarey@gmail.com">Richie Carey</a></p>
         </div>
     </header>
-    <section class="grid m-auto mb-4 md:py-2 md:mt-2 place-items-center text-xs md:text-base max-w-screen-xl">
-        <div class="bg-slate-200 min-w-[100%] p-4">
+    <section
+        class="bg-slate-200 flex m-auto items-start mb-4 md:py-2 md:mt-2 place-items-center text-xs md:text-base max-w-screen-xl">
+        <div class="flex-1 min-w-[60%] md:min-w-[80%] p-4">
             <h2 class="text-2xl">DGMD E-2</h2>
             <ul class="list-disc pb-2 pl-6">
                 <li>Project 1</li>
@@ -24,7 +27,8 @@
             <h2 class="text-2xl">Results</h2>
             <ul class="list-disc pb-2 pl-6">
                 <li><span class="text-blue-700">Game Winner: <?php echo $winner ?></span></li>
-                <li>Rounds: <?php echo $round ?></li>
+                <li>Rounds: <?php echo count($game) ?>
+                </li>
             </ul>
             <h2 class="text-2xl">Mechanics</h2>
             <ul class="list-disc pb-2 pl-6">
@@ -37,15 +41,46 @@
             </ul>
             <h2 class="text-2xl">Resources</h2>
             <ul class="list-disc italic pb-2 pl-6">
-                <li><a class="no-underline hover:underline" href="https://www.php.net/" target="_blank" rel="noopener noreferrer">PHP.net</a></li>
-                <li><a class="no-underline hover:underline" href="https://en.wikipedia.org/wiki/Playing_cards_in_Unicode" target="_blank" rel="noopener noreferrer">Playing cards in Unicode - Wikipedia</a></li>
-                <li><a class="no-underline hover:underline" href="https://en.wikipedia.org/wiki/Standard_52-card_deck" target="_blank" rel="noopener noreferrer">Standard 52-card deck - Wikipedia</a></li>
-                <li><a class="no-underline hover:underline" href="https://www.wimpyprogrammer.com/the-statistics-of-war-the-card-game" target="_blank" rel="noopener noreferrer">The Statistics of War (the card game)</a></li>
+                <li><a class="no-underline hover:underline" href="https://www.php.net/" target="_blank"
+                        rel="noopener noreferrer">PHP.net</a></li>
+                <li><a class="no-underline hover:underline"
+                        href="https://en.wikipedia.org/wiki/Playing_cards_in_Unicode" target="_blank"
+                        rel="noopener noreferrer">Playing cards in Unicode - Wikipedia</a></li>
+                <li><a class="no-underline hover:underline" href="https://en.wikipedia.org/wiki/Standard_52-card_deck"
+                        target="_blank" rel="noopener noreferrer">Standard 52-card deck - Wikipedia</a></li>
+                <li><a class="no-underline hover:underline" href="https://tailwindcss.com/" target="_blank"
+                        rel="noopener noreferrer">Tailwind CSS</a></li>
+                <li><a class="no-underline hover:underline"
+                        href="https://www.wimpyprogrammer.com/the-statistics-of-war-the-card-game" target="_blank"
+                        rel="noopener noreferrer">The Statistics of War (the card game)</a></li>
             </ul>
         </div>
+        <div class="flex-1 items-start min-w-[40%] md:min-w-[20%] p-4">
+            <form class="bg-red-300 p-4" method='POST' action='process.php'>
+                <label for="max-rounds">Maximum rounds:</label>
+                <select name="answer" id="max-rounds">
+                    <option>5</option>
+                    <option>10</option>
+                    <option>25</option>
+                    <option>50</option>
+                    <option>100</option>
+                    <option>500</option>
+                </select>
+                <button class="bg-gray-300" type='submit'>Check answer</button>
+            </form>
+        </div>
     </section>
+
     <section class="grid m-auto mb-8 place-items-center text-xs md:text-base max-w-screen-xl">
-        <h2 class="mb-2 text-2xl text-blue-700">Game Winner: <?php echo $winner ?></h2>
+        <h2 class="mb-2 text-2xl text-blue-700">Game Winner: <?php echo $winner ?>
+        </h2>
+        <h3><?php echo $_SESSION['answer']; ?>
+        </h3>
+        <form method='POST' action='process.php'>
+            <label for='answer'>Your guess:</label>
+            <input type='text' name='answer' id='answer'>
+            <button class="bg-gray-300" type='submit'>Check answer</button>
+        </form>
         <table class="table-fixed min-w-[99%] md:min-w-[100%] text-center">
             <thead>
                 <tr class="bg-gray-900 text-zinc-50">
@@ -59,26 +94,28 @@
             </thead>
             <tbody>
                 <?php foreach ($game as $round => $outcome) { ?>
-                    <tr class="odd:bg-slate-200 hover:bg-yellow-100">
-                        <td>
-                            <?php echo ($outcome['round']) ?>
-                        </td>
-                        <td class="<?php echo ($outcome['player one card style']) ?>">
-                            <?php echo ($outcome['player one card']) ?>
-                        </td>
-                        <td class="<?php echo ($outcome['player two card style']) ?>">
-                            <?php echo ($outcome['player two card']) ?>
-                        </td>
-                        <td>
-                            <?php echo ($outcome['player one card count']) ?>
-                        </td>
-                        <td>
-                            <?php echo ($outcome['player two card count']) ?>
-                        </td>
-                        <td>
-                            <?php echo ($outcome['result']) ?>
-                        </td>
-                    </tr>
+                <tr class="odd:bg-slate-200 hover:bg-yellow-100">
+                    <td>
+                        <?php echo($outcome['round']) ?>
+                    </td>
+                    <td
+                        class="<?php echo($outcome['player one card style']) ?>">
+                        <?php echo($outcome['player one card']) ?>
+                    </td>
+                    <td
+                        class="<?php echo($outcome['player two card style']) ?>">
+                        <?php echo($outcome['player two card']) ?>
+                    </td>
+                    <td>
+                        <?php echo($outcome['player one card count']) ?>
+                    </td>
+                    <td>
+                        <?php echo($outcome['player two card count']) ?>
+                    </td>
+                    <td>
+                        <?php echo($outcome['result']) ?>
+                    </td>
+                </tr>
                 <?php } ?>
             </tbody>
         </table>
