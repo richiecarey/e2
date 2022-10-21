@@ -13,8 +13,9 @@
     <header class="bg-[#a51c30] p-2 text-zinc-50">
         <div class="flex flex-row items-center justify-between m-auto max-w-screen-xl">
             <h1 class="md:text-2xl text-xl">(Similar to the card game) War</h1>
-            <p class=" md:text-sm text-xs"><a class="underline hover:text-blue-100"
-                    href="mailto:richiecarey@gmail.com">Richie Carey</a></p>
+            <p class=" md:text-sm text-xs">
+                <a class="underline hover:text-blue-100" href="mailto:richiecarey@gmail.com">Richie Carey</a>
+            </p>
         </div>
     </header>
     <section
@@ -24,12 +25,15 @@
             <ul class="list-disc pb-2 pl-6">
                 <li>Project 1</li>
             </ul>
+            <?php if (isset($game)) { ?>
             <h2 class="text-2xl">Results</h2>
             <ul class="list-disc pb-2 pl-6">
-                <li><span class="text-blue-700">Game Winner: <?php echo $winner ?></span></li>
-                <li>Rounds: <?php echo count($game) ?>
+                <li><span class="text-blue-700">Game Winner: <?php echo $winner ?></span>
+                </li>
+                <li>Rounds: <?php echo count($rounds) ?>
                 </li>
             </ul>
+            <?php } else { ?>
             <h2 class="text-2xl">Mechanics</h2>
             <ul class="list-disc pb-2 pl-6">
                 <li>Each player is dealt 26 cards from a shuffled deck</li>
@@ -54,33 +58,32 @@
                         href="https://www.wimpyprogrammer.com/the-statistics-of-war-the-card-game" target="_blank"
                         rel="noopener noreferrer">The Statistics of War (the card game)</a></li>
             </ul>
+            <?php } ?>
         </div>
-        <div class="flex-1 items-start min-w-[40%] md:min-w-[20%] p-4">
+        <div class="min-w-[40%] md:min-w-[20%] p-4">
             <form class="bg-red-300 p-4" method='POST' action='process.php'>
-                <label for="max-rounds">Maximum rounds:</label>
-                <select name="answer" id="max-rounds">
-                    <option>5</option>
-                    <option>10</option>
-                    <option>25</option>
-                    <option>50</option>
-                    <option>100</option>
-                    <option>500</option>
-                </select>
-                <button class="bg-gray-300" type='submit'>Check answer</button>
+                <fieldset>
+                    <legend class="font-medium mb-4">How many rounds would you like to play?</legend>
+                    <label for="max-rounds">Max:</label>
+                    <select name="maxRounds" id="max-rounds">
+                        <option>5</option>
+                        <option>10</option>
+                        <option>25</option>
+                        <option>50</option>
+                        <option>100</option>
+                        <option>500</option>
+                        <option>None</option>
+                    </select>
+                    <button class="bg-gray-300 mt-2 w-full" type='submit'>Submit</button>
+                </fieldset>
             </form>
         </div>
     </section>
 
     <section class="grid m-auto mb-8 place-items-center text-xs md:text-base max-w-screen-xl">
+        <?php if (isset($game)) { ?>
         <h2 class="mb-2 text-2xl text-blue-700">Game Winner: <?php echo $winner ?>
         </h2>
-        <h3><?php echo $_SESSION['answer']; ?>
-        </h3>
-        <form method='POST' action='process.php'>
-            <label for='answer'>Your guess:</label>
-            <input type='text' name='answer' id='answer'>
-            <button class="bg-gray-300" type='submit'>Check answer</button>
-        </form>
         <table class="table-fixed min-w-[99%] md:min-w-[100%] text-center">
             <thead>
                 <tr class="bg-gray-900 text-zinc-50">
@@ -93,7 +96,7 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($game as $round => $outcome) { ?>
+                <?php foreach ($rounds as $round => $outcome) { ?>
                 <tr class="odd:bg-slate-200 hover:bg-yellow-100">
                     <td>
                         <?php echo($outcome['round']) ?>
@@ -119,6 +122,7 @@
                 <?php } ?>
             </tbody>
         </table>
+        <?php } ?>
     </section>
     <footer class="bg-slate-200 pb-8 pt-8 text-center">
         <p>Project 1 &#183; DGMD E-2</p>
