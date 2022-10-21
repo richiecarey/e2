@@ -7,11 +7,12 @@ require 'Game.php';
 require 'GameText.php';
 require 'Style.php';
 
+$gameText = new GameText();
+$title = $gameText->getTitle();
+
 if (isset($_SESSION['maxRounds'])) {
     $maxRounds = $_SESSION['maxRounds'];
 
-    $gameText = new GameText();
-    $title = $gameText->getTitle();
     $outcome = $gameText->getOutcome();
 
     $style = new Style();

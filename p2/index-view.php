@@ -23,7 +23,7 @@
         <div class="flex-1 min-w-[60%] md:min-w-[80%] p-4">
             <h2 class="text-2xl">DGMD E-2</h2>
             <ul class="list-disc pb-2 pl-6">
-                <li>Project 1</li>
+                <li>Project 2</li>
             </ul>
             <?php if (isset($game)) { ?>
             <h2 class="text-2xl">Results</h2>
@@ -61,20 +61,28 @@
             <?php } ?>
         </div>
         <div class="min-w-[40%] md:min-w-[20%] p-4">
-            <form class="bg-red-300 p-4" method='POST' action='process.php'>
+            <form class="bg-[#ffdb6d]/90 p-4" method='POST' action='process.php'>
                 <fieldset>
                     <legend class="font-medium mb-4">How many rounds would you like to play?</legend>
                     <label for="max-rounds">Max:</label>
                     <select name="maxRounds" id="max-rounds">
-                        <option>5</option>
-                        <option>10</option>
-                        <option>25</option>
-                        <option>50</option>
-                        <option>100</option>
-                        <option>500</option>
-                        <option>None</option>
+                        <option value="5" <?php echo ((isset($_SESSION['maxRounds'])) and ($_SESSION['maxRounds'] == "5")) ? 'selected' : '' ?>>5
+                        </option>
+                        <option value="10" <?php echo ((isset($_SESSION['maxRounds'])) and ($_SESSION['maxRounds'] == "10")) ? 'selected' : '' ?>>10
+                        </option>
+                        <option value="25" <?php echo ((isset($_SESSION['maxRounds'])) and ($_SESSION['maxRounds'] == "25")) ? 'selected' : '' ?>>25
+                        </option>
+                        <option value="50" <?php echo ((isset($_SESSION['maxRounds'])) and ($_SESSION['maxRounds'] == "50")) ? 'selected' : '' ?>>50
+                        </option>
+                        <option value="100" <?php echo ((isset($_SESSION['maxRounds'])) and ($_SESSION['maxRounds'] == "100")) ? 'selected' : '' ?>>100
+                        </option>
+                        <option value="500" <?php echo ((isset($_SESSION['maxRounds'])) and ($_SESSION['maxRounds'] == "500")) ? 'selected' : '' ?>>500
+                        </option>
+                        <option value="">Reset
+                        </option>
                     </select>
-                    <button class="bg-gray-300 mt-2 w-full" type='submit'>Submit</button>
+                    <button class="hover:bg-gray-600 bg-gray-700 mt-4 text-slate-100 w-full"
+                        type='submit'>Submit</button>
                 </fieldset>
             </form>
         </div>
@@ -124,8 +132,8 @@
         </table>
         <?php } ?>
     </section>
-    <footer class="bg-slate-200 pb-8 pt-8 text-center">
-        <p>Project 1 &#183; DGMD E-2</p>
+    <footer class="bg-[#a51c30]/10 pb-8 pt-8 text-center">
+        <p>Project 2 &#183; DGMD E-2</p>
         <p>Richie Carey</p>
     </footer>
 </body>
