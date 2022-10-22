@@ -87,7 +87,6 @@
             </form>
         </div>
     </section>
-
     <section class="grid m-auto mb-8 place-items-center text-xs md:text-base max-w-screen-xl">
         <?php if (isset($game)) { ?>
         <h2 class="mb-2 text-2xl text-blue-700">Game Winner: <?php echo $winner ?>

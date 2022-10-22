@@ -11,6 +11,7 @@ class Style
             '♥' => 'text-red-500'
         ];
     }
+
     public function getSuitColor()
     {
         return $this->suitColor;

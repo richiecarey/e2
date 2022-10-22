@@ -5,8 +5,6 @@
 
 ## Outside resources
 
-## Outside resources
-
 -   _[PHP.net](https://www.php.net/)_
 
 -   _[Playing cards in Unicode - Wikipedia](https://en.wikipedia.org/wiki/Playing_cards_in_Unicode)_

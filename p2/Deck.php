@@ -2,10 +2,8 @@
 
 class Deck
 {
-    # Properties
     public $deck = [];
 
-    # Methods
     public function __construct()
     {
         $standard = [

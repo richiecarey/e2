@@ -12,7 +12,6 @@ $title = $gameText->getTitle();
 
 if (isset($_SESSION['maxRounds'])) {
     $maxRounds = $_SESSION['maxRounds'];
-
     $outcome = $gameText->getOutcome();
 
     $style = new Style();

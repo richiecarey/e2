@@ -50,10 +50,12 @@ class Game
             ];
         }
     }
+
     public function getRounds()
     {
         return $this->game;
     }
+
     public function getWinner()
     {
         if (end($this->game)['player one card count'] > end($this->game)['player two card count']) {
