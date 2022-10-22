@@ -40,7 +40,8 @@
                 <li>For each round, player re-shuffles hand (to reduce stalemate risk) and plays top card.</li>
                 <li>Ace is low, high card wins round and keeps both cards</li>
                 <li>In case of a tie, both cards are discarded</li>
-                <li>Play continues until a player either runs out of cards or 500 rounds have been played</li>
+                <li>Play continues until maximum rounds selected or either player runs out of cards
+                </li>
                 <li>Player with most cards at end of game wins</li>
             </ul>
             <h2 class="text-2xl">Resources</h2>
