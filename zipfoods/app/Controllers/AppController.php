@@ -1,8 +1,5 @@
 <?php
-
 namespace App\Controllers;
-
-use App\Hello;
 
 class AppController extends Controller
 {
@@ -11,11 +8,10 @@ class AppController extends Controller
      */
     public function index()
     {
-        //$hello = new Hello();
         $welcomes = ['Welcome', 'Aloha', 'Welkom', 'Bienvenidos', 'Bienvenu', 'Welkomma'];
-
+        
         return $this->app->view('index', [
-            'welcome' => Hello::speak()
+            'welcome' => $welcomes[array_rand($welcomes)]
         ]);
     }
 }
