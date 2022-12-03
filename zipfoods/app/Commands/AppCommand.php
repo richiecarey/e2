@@ -2,8 +2,8 @@
 
 namespace App\Commands;
 
-use Faker\Factory;
 use App\Products;
+use Faker\Factory;
 
 class AppCommand extends Command
 {

@@ -1,0 +1,12 @@
+{
+    "1": {
+        "id": 1,
+        "winner": "Player Two",
+        "rounds": "10"
+    },
+    "2": {
+        "id": 1,
+        "winner": "Player One",
+        "rounds": "43"
+    }
+}

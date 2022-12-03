@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Hello;
+use App\Game;
 
 class AppController extends Controller
 {
@@ -11,11 +11,11 @@ class AppController extends Controller
      */
     public function index()
     {
-        //$hello = new Hello();
-        $welcomes = ['Welcome', 'Aloha', 'Welkom', 'Bienvenidos', 'Bienvenu', 'Welkomma'];
-
-        return $this->app->view('index', [
-            'welcome' => Hello::speak()
-        ]);
+        return $this->app->view('index');
+    }
+    public function play()
+    {
+        $game = new Game($this->app->db(), $this->app->input('maxRounds'));
+        $this->app->redirect('/', ['game' => $game]);
     }
 }
