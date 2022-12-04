@@ -6,8 +6,8 @@ class GameText
 {
     public function __construct()
     {
-        $this->title = 'Richie Carey | Project 1 | DGMD E-2';
-        $this->outcome = ['tie', 'player one', 'player two'];
+        $this->title = 'Richie Carey | Project 3 | DGMD E-2';
+        $this->outcome = ['Tie', 'Player', 'Computer'];
     }
 
     public function getTitle()

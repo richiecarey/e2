@@ -15,15 +15,18 @@ class Game
     private $player1 = [];
     private $player2 = [];
     private $maxRounds = 0;
+    private $name = "";
     private $style;
 
-    public function __construct($dataSource, $maxRounds)
+    public function __construct($dataSource, $name, $maxRounds)
     {
         $this->style = new Style();
         $this->style = $this->style->getSuitColor();
         $this->gameText = new GameText();
         $this->outcome = $this->gameText->getOutcome();
+        $this->outcome[1] = $name;
         $this->maxRounds = $maxRounds;
+        $this->name = $name;
 
         $this->deck = new Deck();
         $this->deck = $this->deck->getAll();
@@ -108,11 +111,14 @@ class Game
     {
         return $this->game;
     }
-
+    public function getPlayerName()
+    {
+        return $this->name;
+    }
     public function getWinner()
     {
         if (end($this->game)['player one card count'] > end($this->game)['player two card count']) {
-            $winner = $this->outcome[1];
+            $winner = $this->name;
         } elseif (end($this->game)['player one card count'] < end($this->game)['player two card count']) {
             $winner = $this->outcome[2];
         } else {

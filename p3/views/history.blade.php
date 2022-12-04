@@ -59,24 +59,30 @@
     <div class="min-w-[40%] md:min-w-[20%] p-4">
         <form class="bg-[#ffdb6d]/90 p-4" method='POST' action='./play'>
             <fieldset>
-                <legend class="font-medium mb-4">How many rounds would you like to play?</legend>
-                <label for="max-rounds">Max:</label>
-                <select name="maxRounds" id="max-rounds">
-                    <option value="5">5
-                    </option>
-                    <option value="10">10
-                    </option>
-                    <option value="25">25
-                    </option>
-                    <option value="50">50
-                    </option>
-                    <option value="100">100
-                    </option>
-                    <option value="500">500
-                    </option>
-                    <option value="">Reset
-                    </option>
-                </select>
+                <div class="font-medium mb-4">
+                    <label for="name">Your name:</label>
+                    <input type="text" name="name" id="name">
+                </div>
+                <div>
+                    <legend class="font-medium mb-2">How many rounds would you like to play?</legend>
+                    <label for="max-rounds">Max:</label>
+                    <select name="maxRounds" id="max-rounds">
+                        <option value="5">5
+                        </option>
+                        <option value="10">10
+                        </option>
+                        <option value="25">25
+                        </option>
+                        <option value="50">50
+                        </option>
+                        <option value="100">100
+                        </option>
+                        <option value="500">500
+                        </option>
+                        <option value="">Reset
+                        </option>
+                    </select>
+                </div>
                 <button class="hover:bg-gray-600 bg-gray-700 mt-4 text-slate-100 w-full" type='submit'>Submit</button>
             </fieldset>
         </form>
@@ -93,7 +99,7 @@
                 <th>Rounds</th>
                 <th>Player 1 #</th>
                 <th>Player 2 #</th>
-                <th>Outcome</th>
+                <th>Winner</th>
                 <th>Date</th>
             </tr>
         </thead>

@@ -12,7 +12,7 @@ class AppCommand extends Command
             'rounds' => 'int',
             'player_one_count' => 'int(4)',
             'player_two_count' => 'int(4)',
-            'winner' => 'varchar(255)',
+            'winner' => 'varchar(32)',
             'timestamp' => 'int(11)'
         ]);
         $this->app->db()->createTable('rounds', [

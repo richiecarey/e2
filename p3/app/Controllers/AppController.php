@@ -13,7 +13,11 @@ class AppController extends Controller
     }
     public function play()
     {
-        $game = new Game($this->app->db(), $this->app->input('maxRounds'));
+        $this->app->validate([
+            'name' => 'required|alpha',
+            'maxRounds' => 'numeric',
+        ]);
+        $game = new Game($this->app->db(), $this->app->input('name'), $this->app->input('maxRounds'));
         $this->app->redirect('/', ['game' => $game]);
     }
     public function history()
