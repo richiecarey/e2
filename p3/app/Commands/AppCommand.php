@@ -9,8 +9,23 @@ class AppCommand extends Command
     public function migrate()
     {
         $this->app->db()->createTable('games', [
-            'winner' => 'varchar(255)',
             'rounds' => 'int',
+            'player_one_count' => 'int(4)',
+            'player_two_count' => 'int(4)',
+            'winner' => 'varchar(255)',
+            'timestamp' => 'int(11)'
+        ]);
+        $this->app->db()->createTable('rounds', [
+            'game_id' => 'int',
+            'player_one_rank' => 'varchar(2)',
+            'player_one_suit' => 'varchar(2)',
+            'player_one_style' => 'varchar(16)',
+            'player_one_count' => 'int',
+            'player_two_rank' => 'varchar(2)',
+            'player_two_suit' => 'varchar(2)',
+            'player_two_style' => 'varchar(16)',
+            'player_two_count' => 'int',
+            'outcome' => 'varchar(16)',
         ]);
         dump('Migration complete; check the database for your new tables.');
     }
@@ -30,8 +45,8 @@ class AppCommand extends Command
     public function fresh()
     {
         $this->migrate();
-        $this->seedGames();
+        //$this->seedGames();
         //$this->seedReviews();
-        dump($this->app->db()->all('games'));
+        //dump($this->app->db()->all('games'));
     }
 }

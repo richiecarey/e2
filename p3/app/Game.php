@@ -19,11 +19,6 @@ class Game
 
     public function __construct($dataSource, $maxRounds)
     {
-        // $this->game_id = $dataSource->insert('games', [
-        //     'winner' => null,
-        //     'rounds' => null,
-        // ]);
-
         $this->style = new Style();
         $this->style = $this->style->getSuitColor();
         $this->gameText = new GameText();
@@ -40,10 +35,18 @@ class Game
             $this->player2[] = array_shift($this->deck);
         }
 
+        # Create game record in database to generate game id
+        $this->game_id = $dataSource->insert('games', [
+            'rounds' => null,
+            'player_one_count' => null,
+            'player_two_count' => null,
+            'winner' => null,
+            'timestamp' => time(),
+        ]);
+
         # Play
         while (($this->player1 and $this->player2) and $this->round < $this->maxRounds) {
             $this->round++;
-            //dd($this->round);
 
             # Both players re-shuffle to reduce risk of stalemate
             shuffle($this->player1);
@@ -78,11 +81,28 @@ class Game
                 'player two card count' => count($this->player2),
                 'result' => $this->result
             ];
+            $this->round_id = $dataSource->insert('rounds', [
+                'game_id' => $this->game_id,
+                'player_one_rank' => $this->player1_card['rank'],
+                'player_one_suit' => $this->player1_card['suit'],
+                'player_one_style' => $this->style[$this->player1_card['suit']],
+                'player_one_count' => count($this->player1),
+                'player_two_rank' => $this->player2_card['rank'],
+                'player_two_suit' => $this->player2_card['suit'],
+                'player_two_style' => $this->style[$this->player2_card['suit']],
+                'player_two_count' => count($this->player2),
+                'outcome' => $this->getWinner(),
+            ]);
         }
-        $this->game_id = $dataSource->insert('games', [
+        $sql = 'UPDATE games SET rounds = :rounds, winner = :winner, player_one_count = :player_one_count, player_two_count = :player_two_count WHERE id = :id';
+        $data = [
+            'id' => $this->game_id,
+            'rounds' => count($this->game),
             'winner' => $this->getWinner(),
-            'rounds' => $this->round,
-        ]);
+            'player_one_count' => count($this->player1),
+            'player_two_count' => count($this->player2),
+        ];
+        $dataSource->run($sql, $data);
     }
     public function getRounds()
     {

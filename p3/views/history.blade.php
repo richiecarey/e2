@@ -13,16 +13,19 @@
         <ul class="list-disc pb-2 pl-6">
             <li>Project 3</li>
         </ul>
-        @if ($app->old('game'))
+        @if (count($games)==1)
         <h2 class="text-2xl">Results</h2>
         <ul class="list-disc pb-2 pl-6">
             <li>
                 <span class="text-blue-700">Game Winner:
-                    {{ $app->old('game')->getWinner() }}
+                    {{ $games[0]['winner'] }}
                 </span>
             </li>
             <li>
-                <span>Rounds: {{ count($app->old('game')->getRounds()) }}</span>
+                <span>Rounds: {{ $games[0]['rounds'] }}</span>
+            </li>
+            <li>
+                <span>{{ date("F j, Y, g:i a", $games[0]['timestamp']) }}</span>
             </li>
         </ul>
         @else
@@ -79,9 +82,52 @@
         </form>
     </div>
 </section>
+
+@if (count($games)>1)
 <section class="grid m-auto mb-8 place-items-center text-xs md:text-base max-w-screen-xl">
-    @if ($app->old('game'))
-    <h2 class="mb-2 text-2xl text-blue-700">Game Winner: {{ $app->old('game')->getWinner() }}
+    <h2 class="mb-2 text-2xl text-blue-700">Game History</h2>
+    <table class="table-fixed min-w-[99%] md:min-w-[100%] text-center">
+        <thead>
+            <tr class="bg-gray-900 text-zinc-50">
+                <th>Game #</th>
+                <th>Rounds</th>
+                <th>Player 1 #</th>
+                <th>Player 2 #</th>
+                <th>Outcome</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($games as $game)
+            <tr class="odd:bg-slate-200 hover:bg-yellow-100">
+                <td>
+                    <a href="?id={{$game['id']}}">{{ $game['id'] }}</a>
+                </td>
+                <td>
+                    {{ $game['rounds'] }}
+                </td>
+                <td>
+                    {{ $game['player_one_count'] }}
+                </td>
+                <td>
+                    {{ $game['player_two_count'] }}
+                </td>
+                <td>
+                    {{ $game['winner'] }}
+                </td>
+                <td>
+                    {{ date("F j, Y, g:i a", $game['timestamp']) }}
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</section>
+@endif
+
+@if (count($rounds)>0)
+<section class="grid m-auto mb-8 place-items-center text-xs md:text-base max-w-screen-xl">
+    <h2 class="mb-2 text-2xl text-blue-700">Game Winner: {{ $games[0]['winner'] }}
     </h2>
     <table class="table-fixed min-w-[99%] md:min-w-[100%] text-center">
         <thead>
@@ -95,33 +141,31 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($app->old('game')->getRounds() as $round => $outcome)
+            @foreach ($rounds as $round)
             <tr class="odd:bg-slate-200 hover:bg-yellow-100">
                 <td>
-                    <?php echo($outcome['round']) ?>
+                    {{ $loop->iteration }}
                 </td>
-                <td
-                    class="<?php echo($outcome['player one card style']) ?>">
-                    <?php echo($outcome['player one card']) ?>
+                <td class="{{$round['player_one_style']}}">
+                    {{ $round['player_one_rank'] }}{{ $round['player_one_suit'] }}
                 </td>
-                <td
-                    class="<?php echo($outcome['player two card style']) ?>">
-                    <?php echo($outcome['player two card']) ?>
+                <td class="{{$round['player_two_style']}}">
+                    {{ $round['player_two_rank'] }}{{ $round['player_two_suit'] }}
                 </td>
                 <td>
-                    <?php echo($outcome['player one card count']) ?>
+                    {{ $round['player_one_count'] }}
                 </td>
                 <td>
-                    <?php echo($outcome['player two card count']) ?>
+                    {{ $round['player_two_count'] }}
                 </td>
                 <td>
-                    <?php echo($outcome['result']) ?>
+                    {{ $round['outcome'] }}
                 </td>
             </tr>
             @endforeach
         </tbody>
     </table>
-    @endif
 </section>
+@endif
 
 @endsection

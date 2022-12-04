@@ -14,9 +14,10 @@
 <body class="bg-slate-50 text-lg">
     <header class="bg-[#a51c30] p-2 text-zinc-50">
         <div class="flex flex-row items-center justify-between m-auto max-w-screen-xl">
-            <h1 class="md:text-2xl text-xl">(Similar to the card game) War</h1>
-            <p class=" md:text-sm text-xs"><a class="underline hover:text-blue-100"
-                    href="mailto:richiecarey@gmail.com">Richie Carey</a></p>
+            <h1 class="md:text-2xl text-xl"><a class="hover:border-b-2 border-zinc-50" href="./">(Similar to the card
+                    game) War</a></h1>
+            <p class=" md:text-sm text-xs"><a class="underline" href="./history">Game History</a>
+            </p>
         </div>
     </header>
 
