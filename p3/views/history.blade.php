@@ -112,7 +112,8 @@
             @foreach ($games as $game)
             <tr class="odd:bg-slate-200 hover:bg-yellow-100">
                 <td>
-                    <a href="?id={{$game['id']}}">{{ $game['id'] }}</a>
+                    <a class="underline" href="?id={{$game['id']}}">{{ $game['id']
+                        }}</a>
                 </td>
                 <td>
                     {{ $game['rounds'] }}
