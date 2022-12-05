@@ -1,3 +1,3 @@
-# e2
-## By: Richie Carey
-Coursework for DGMD E-2
+# Coursework for DGMD E-2
+
+## Richie Carey
