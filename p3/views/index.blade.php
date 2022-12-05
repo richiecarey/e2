@@ -17,7 +17,7 @@
         <h2 class="text-2xl">Results</h2>
         <ul class="list-disc pb-2 pl-6">
             <li>
-                <span class="text-blue-700">Game Winner:
+                <span class="text-blue-700">Winner:
                     {{ $app->old('game')->getWinner() }}
                 </span>
             </li>
@@ -76,11 +76,9 @@
                         </option>
                         <option value="500">500
                         </option>
-                        <option value="">Reset
-                        </option>
                     </select>
                 </div>
-                <button class="hover:bg-gray-600 bg-gray-700 mt-4 text-slate-100 w-full" type='submit'>Submit</button>
+                <button class="hover:bg-gray-600 bg-gray-700 mt-4 text-slate-100 w-full" type='submit'>Play</button>
             </fieldset>
         </form>
         @if($app->errorsExist())
@@ -94,7 +92,7 @@
 </section>
 <section class="grid m-auto mb-8 place-items-center text-xs md:text-base max-w-screen-xl">
     @if ($app->old('game'))
-    <h2 class="mb-2 text-2xl text-blue-700">Game Winner: {{ $app->old('game')->getWinner() }}
+    <h2 class="mb-2 text-2xl text-blue-700">Winner: {{ $app->old('game')->getWinner() }}
     </h2>
     <table class="table-fixed min-w-[99%] md:min-w-[100%] text-center">
         <thead>

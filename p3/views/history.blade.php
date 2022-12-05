@@ -14,10 +14,10 @@
             <li>Project 3</li>
         </ul>
         @if (count($games)==1)
-        <h2 class="text-2xl">Results</h2>
+        <h2 class="text-2xl">Game {{ $games[0]['id'] }} detail history</h2>
         <ul class="list-disc pb-2 pl-6">
             <li>
-                <span class="text-blue-700">Game Winner:
+                <span class="text-blue-700">Winner:
                     {{ $games[0]['winner'] }}
                 </span>
             </li>
@@ -79,8 +79,6 @@
                         </option>
                         <option value="500">500
                         </option>
-                        <option value="">Reset
-                        </option>
                     </select>
                 </div>
                 <button class="hover:bg-gray-600 bg-gray-700 mt-4 text-slate-100 w-full" type='submit'>Submit</button>
@@ -140,7 +138,7 @@
 
 @if (count($rounds)>0)
 <section class="grid m-auto mb-8 place-items-center text-xs md:text-base max-w-screen-xl">
-    <h2 class="mb-2 text-2xl text-blue-700">Game Winner: {{ $games[0]['winner'] }}
+    <h2 class="mb-2 text-2xl text-blue-700">Winner: {{ $games[0]['winner'] }}
     </h2>
     <table class="table-fixed min-w-[99%] md:min-w-[100%] text-center">
         <thead>
