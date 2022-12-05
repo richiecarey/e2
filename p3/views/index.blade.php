@@ -93,11 +93,11 @@
         <thead>
             <tr class="bg-gray-900 text-zinc-50">
                 <th>Round</th>
-                <th>Player 1</th>
-                <th>Player 2</th>
-                <th>Player 1 #</th>
-                <th>Player 2 #</th>
-                <th>Outcome</th>
+                <th>Player</th>
+                <th>Computer</th>
+                <th>Player count</th>
+                <th>Computer count</th>
+                <th>Round winner</th>
             </tr>
         </thead>
         <tbody>
@@ -107,18 +107,18 @@
                     <?php echo($outcome['round']) ?>
                 </td>
                 <td
-                    class="<?php echo($outcome['player one card style']) ?>">
-                    <?php echo($outcome['player one card']) ?>
+                    class="<?php echo($outcome['player card style']) ?>">
+                    <?php echo($outcome['player card']) ?>
                 </td>
                 <td
-                    class="<?php echo($outcome['player two card style']) ?>">
-                    <?php echo($outcome['player two card']) ?>
+                    class="<?php echo($outcome['computer card style']) ?>">
+                    <?php echo($outcome['computer card']) ?>
                 </td>
                 <td>
-                    <?php echo($outcome['player one card count']) ?>
+                    <?php echo($outcome['player card count']) ?>
                 </td>
                 <td>
-                    <?php echo($outcome['player two card count']) ?>
+                    <?php echo($outcome['computer card count']) ?>
                 </td>
                 <td>
                     <?php echo($outcome['result']) ?>

@@ -10,43 +10,47 @@ class AppCommand extends Command
     {
         $this->app->db()->createTable('games', [
             'rounds' => 'int',
-            'player_one_count' => 'int(4)',
-            'player_two_count' => 'int(4)',
+            'player_count' => 'int(4)',
+            'computer_count' => 'int(4)',
             'winner' => 'varchar(32)',
             'timestamp' => 'int(11)'
         ]);
         $this->app->db()->createTable('rounds', [
             'game_id' => 'int',
-            'player_one_rank' => 'varchar(2)',
-            'player_one_suit' => 'varchar(2)',
-            'player_one_style' => 'varchar(16)',
-            'player_one_count' => 'int',
-            'player_two_rank' => 'varchar(2)',
-            'player_two_suit' => 'varchar(2)',
-            'player_two_style' => 'varchar(16)',
-            'player_two_count' => 'int',
+            'player_rank' => 'varchar(2)',
+            'player_suit' => 'varchar(2)',
+            'player_style' => 'varchar(16)',
+            'player_count' => 'int',
+            'computer_rank' => 'varchar(2)',
+            'computer_suit' => 'varchar(2)',
+            'computer_style' => 'varchar(16)',
+            'computer_count' => 'int',
             'outcome' => 'varchar(16)',
         ]);
         dump('Migration complete; check the database for your new tables.');
     }
     public function seedGames()
     {
-        # Seed sample games
-        for ($i = 0; $i < 50; $i++) {
-            # Set up a game
-            $games = [
-                'winner' => ($i % 2 == 0) ? 'Player One' : 'Player Two',
-                'rounds' => rand(10, 100),
-            ];
-            # Insert the game
-            $this->app->db()->insert('games', $games);
+        $json = file_get_contents($this->app->path('database/games.json'));
+        $this->games = json_decode($json, true);
+
+        foreach ($this->games as $game) {
+            $this->app->db()->insert('games', $game);
+        }
+    }
+    public function seedRounds()
+    {
+        $json = file_get_contents($this->app->path('database/rounds.json'));
+        $this->rounds = json_decode($json, true);
+
+        foreach ($this->rounds as $round) {
+            $this->app->db()->insert('rounds', $round);
         }
     }
     public function fresh()
     {
         $this->migrate();
-        //$this->seedGames();
-        //$this->seedReviews();
-        //dump($this->app->db()->all('games'));
+        $this->seedGames();
+        $this->seedRounds();
     }
 }

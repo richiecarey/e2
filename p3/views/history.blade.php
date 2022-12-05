@@ -97,8 +97,8 @@
             <tr class="bg-gray-900 text-zinc-50">
                 <th>Game #</th>
                 <th>Rounds</th>
-                <th>Player 1 #</th>
-                <th>Player 2 #</th>
+                <th>Player count</th>
+                <th>Computer count</th>
                 <th>Winner</th>
                 <th>Date</th>
             </tr>
@@ -113,10 +113,10 @@
                     {{ $game['rounds'] }}
                 </td>
                 <td>
-                    {{ $game['player_one_count'] }}
+                    {{ $game['player_count'] }}
                 </td>
                 <td>
-                    {{ $game['player_two_count'] }}
+                    {{ $game['computer_count'] }}
                 </td>
                 <td>
                     {{ $game['winner'] }}
@@ -152,17 +152,17 @@
                 <td>
                     {{ $loop->iteration }}
                 </td>
-                <td class="{{$round['player_one_style']}}">
-                    {{ $round['player_one_rank'] }}{{ $round['player_one_suit'] }}
+                <td class="{{$round['player_style']}}">
+                    {{ $round['player_rank'] }}{{ $round['player_suit'] }}
                 </td>
-                <td class="{{$round['player_two_style']}}">
-                    {{ $round['player_two_rank'] }}{{ $round['player_two_suit'] }}
-                </td>
-                <td>
-                    {{ $round['player_one_count'] }}
+                <td class="{{$round['computer_style']}}">
+                    {{ $round['computer_rank'] }}{{ $round['computer_suit'] }}
                 </td>
                 <td>
-                    {{ $round['player_two_count'] }}
+                    {{ $round['player_count'] }}
+                </td>
+                <td>
+                    {{ $round['computer_count'] }}
                 </td>
                 <td>
                     {{ $round['outcome'] }}

@@ -41,8 +41,8 @@ class Game
         # Create game record in database to generate game id
         $this->game_id = $dataSource->insert('games', [
             'rounds' => null,
-            'player_one_count' => null,
-            'player_two_count' => null,
+            'player_count' => null,
+            'computer_count' => null,
             'winner' => null,
             'timestamp' => time(),
         ]);
@@ -76,34 +76,34 @@ class Game
             # Add the results of the round to the game array
             $this->game[] = [
                 'round' => $this->round,
-                'player one card' => $this->player1_card['rank'] . $this->player1_card['suit'],
-                'player one card style' => $this->style[$this->player1_card['suit']],
-                'player one card count' => count($this->player1),
-                'player two card' => $this->player2_card['rank'] . $this->player2_card['suit'],
-                'player two card style' => $this->style[$this->player2_card['suit']],
-                'player two card count' => count($this->player2),
+                'player card' => $this->player1_card['rank'] . $this->player1_card['suit'],
+                'player card style' => $this->style[$this->player1_card['suit']],
+                'player card count' => count($this->player1),
+                'computer card' => $this->player2_card['rank'] . $this->player2_card['suit'],
+                'computer card style' => $this->style[$this->player2_card['suit']],
+                'computer card count' => count($this->player2),
                 'result' => $this->result
             ];
             $this->round_id = $dataSource->insert('rounds', [
                 'game_id' => $this->game_id,
-                'player_one_rank' => $this->player1_card['rank'],
-                'player_one_suit' => $this->player1_card['suit'],
-                'player_one_style' => $this->style[$this->player1_card['suit']],
-                'player_one_count' => count($this->player1),
-                'player_two_rank' => $this->player2_card['rank'],
-                'player_two_suit' => $this->player2_card['suit'],
-                'player_two_style' => $this->style[$this->player2_card['suit']],
-                'player_two_count' => count($this->player2),
+                'player_rank' => $this->player1_card['rank'],
+                'player_suit' => $this->player1_card['suit'],
+                'player_style' => $this->style[$this->player1_card['suit']],
+                'player_count' => count($this->player1),
+                'computer_rank' => $this->player2_card['rank'],
+                'computer_suit' => $this->player2_card['suit'],
+                'computer_style' => $this->style[$this->player2_card['suit']],
+                'computer_count' => count($this->player2),
                 'outcome' => $this->getWinner(),
             ]);
         }
-        $sql = 'UPDATE games SET rounds = :rounds, winner = :winner, player_one_count = :player_one_count, player_two_count = :player_two_count WHERE id = :id';
+        $sql = 'UPDATE games SET rounds = :rounds, winner = :winner, player_count = :player_count, computer_count = :computer_count WHERE id = :id';
         $data = [
             'id' => $this->game_id,
             'rounds' => count($this->game),
             'winner' => $this->getWinner(),
-            'player_one_count' => count($this->player1),
-            'player_two_count' => count($this->player2),
+            'player_count' => count($this->player1),
+            'computer_count' => count($this->player2),
         ];
         $dataSource->run($sql, $data);
     }
@@ -117,9 +117,9 @@ class Game
     }
     public function getWinner()
     {
-        if (end($this->game)['player one card count'] > end($this->game)['player two card count']) {
+        if (end($this->game)['player card count'] > end($this->game)['computer card count']) {
             $winner = $this->name;
-        } elseif (end($this->game)['player one card count'] < end($this->game)['player two card count']) {
+        } elseif (end($this->game)['player card count'] < end($this->game)['computer card count']) {
             $winner = $this->outcome[2];
         } else {
             $winner = $this->outcome[0];
