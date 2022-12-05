@@ -3,7 +3,7 @@
 namespace App;
 
 use App\Deck;
-use App\GameText;
+use App\Language;
 use App\Style;
 
 class Game
@@ -22,21 +22,13 @@ class Game
     {
         $this->style = new Style();
         $this->style = $this->style->getSuitColor();
-        $this->gameText = new GameText();
-        $this->outcome = $this->gameText->getOutcome();
+        $this->language = new Language();
+        $this->outcome = $this->language->getOutcome();
         $this->outcome[1] = $name;
         $this->maxRounds = $maxRounds;
         $this->name = $name;
-
         $this->deck = new Deck();
         $this->deck = $this->deck->getAll();
-        shuffle($this->deck);
-
-        # Deal the cards
-        while ($this->deck) {
-            $this->player1[] = array_shift($this->deck);
-            $this->player2[] = array_shift($this->deck);
-        }
 
         # Create game record in database to generate game id
         $this->game_id = $dataSource->insert('games', [
@@ -46,6 +38,15 @@ class Game
             'winner' => null,
             'timestamp' => time(),
         ]);
+
+        # Shuffle
+        shuffle($this->deck);
+
+        # Deal
+        while ($this->deck) {
+            $this->player1[] = array_shift($this->deck);
+            $this->player2[] = array_shift($this->deck);
+        }
 
         # Play
         while (($this->player1 and $this->player2) and $this->round < $this->maxRounds) {
@@ -97,6 +98,8 @@ class Game
                 'outcome' => $this->getWinner(),
             ]);
         }
+
+        # Update game record with results
         $sql = 'UPDATE games SET rounds = :rounds, winner = :winner, player_count = :player_count, computer_count = :computer_count WHERE id = :id';
         $data = [
             'id' => $this->game_id,

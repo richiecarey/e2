@@ -58,7 +58,7 @@
             <fieldset>
                 <div class="font-medium mb-4">
                     <label for="name">Your name:</label>
-                    <input type="text" name="name" id="name">
+                    <input type="text" name="name" id="name" value={{ $app->sessionGet('name') }}>
                 </div>
                 <div>
                     <legend class="font-medium mb-2">How many rounds would you like to play?</legend>
@@ -83,6 +83,13 @@
                 <button class="hover:bg-gray-600 bg-gray-700 mt-4 text-slate-100 w-full" type='submit'>Submit</button>
             </fieldset>
         </form>
+        @if($app->errorsExist())
+        <ul class="text-red-500">
+            @foreach($app->errors() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+        @endif
     </div>
 </section>
 <section class="grid m-auto mb-8 place-items-center text-xs md:text-base max-w-screen-xl">
@@ -104,24 +111,23 @@
             @foreach ($app->old('game')->getRounds() as $round => $outcome)
             <tr class="odd:bg-slate-200 hover:bg-yellow-100">
                 <td>
-                    <?php echo($outcome['round']) ?>
+                    {{ $outcome['round'] }}
                 </td>
-                <td
-                    class="<?php echo($outcome['player card style']) ?>">
-                    <?php echo($outcome['player card']) ?>
+                <td class="{{ $outcome['player card style'] }}">
+                    {{ $outcome['player card'] }}
                 </td>
                 <td
                     class="<?php echo($outcome['computer card style']) ?>">
-                    <?php echo($outcome['computer card']) ?>
+                    {{ $outcome['computer card'] }}
                 </td>
                 <td>
-                    <?php echo($outcome['player card count']) ?>
+                    {{ $outcome['player card count'] }}
                 </td>
                 <td>
-                    <?php echo($outcome['computer card count']) ?>
+                    {{ $outcome['computer card count'] }}
                 </td>
                 <td>
-                    <?php echo($outcome['result']) ?>
+                    {{ $outcome['result'] }}
                 </td>
             </tr>
             @endforeach

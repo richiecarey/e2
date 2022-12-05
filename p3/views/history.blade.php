@@ -61,7 +61,7 @@
             <fieldset>
                 <div class="font-medium mb-4">
                     <label for="name">Your name:</label>
-                    <input type="text" name="name" id="name">
+                    <input type="text" name="name" id="name" value={{ $app->sessionGet('name') }}>
                 </div>
                 <div>
                     <legend class="font-medium mb-2">How many rounds would you like to play?</legend>
@@ -86,6 +86,13 @@
                 <button class="hover:bg-gray-600 bg-gray-700 mt-4 text-slate-100 w-full" type='submit'>Submit</button>
             </fieldset>
         </form>
+        @if($app->errorsExist())
+        <ul class="text-red-500">
+            @foreach($app->errors() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+        @endif
     </div>
 </section>
 

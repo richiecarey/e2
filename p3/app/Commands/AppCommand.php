@@ -2,8 +2,6 @@
 
 namespace App\Commands;
 
-use App\Games;
-
 class AppCommand extends Command
 {
     public function migrate()

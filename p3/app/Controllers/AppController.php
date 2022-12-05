@@ -17,6 +17,7 @@ class AppController extends Controller
             'name' => 'required|alpha',
             'maxRounds' => 'numeric',
         ]);
+        $this->app->sessionSet('name', $this->app->input('name'));
         $game = new Game($this->app->db(), $this->app->input('name'), $this->app->input('maxRounds'));
         $this->app->redirect('/', ['game' => $game]);
     }
