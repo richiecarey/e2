@@ -1,15 +1,14 @@
-<!doctype html>
-<html lang='en'>
-<head>
+@extends('templates/master')
 
-	<title>404 Page Not Found</title>
-	<meta charset='utf-8'>
+@section('title')
+{{ $app->config('app.name') }}
+@endsection
 
-</head>
-<body>
+@section('content')
 
-<h2>404 Page Not Found</h2>
-<a href='{{ $app->config('app.url') }}'>{{ $app->config('app.url') }}</a>
-	
-</body>
-</html>
+<section class="grid m-auto mb-8 place-items-center text-xs md:text-base max-w-screen-xl">
+    <h2 class="mb-4 mt-4 text-2xl text-blue-700">404 - Page Not Found</h2>
+    <a class="underline" href="{{ $app->config('app.url') }}">Return Home</a>
+</section>
+
+@endsection

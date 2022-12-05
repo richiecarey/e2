@@ -11,7 +11,9 @@ class GameCest
      */
     public function pageLoads(AcceptanceTester $I)
     {
-        $I->amGoingTo('to test the Project 3 homepage.');
+        $I->amGoingTo('begin testing.');
+
+        $I->amGoingTo('test the Project 3 homepage.');
 
         $I->amOnPage('/');
 
@@ -21,13 +23,13 @@ class GameCest
 
         $I->see('Resources', 'h2');
 
-        $I->amGoingTo('to test the form validation.');
+        $I->amGoingTo('test the form validation.');
 
         $I->click('Play');
 
         $I->see('The value for name can not be blank');
 
-        $I->amGoingTo('to test the game play.');
+        $I->amGoingTo('test the game play.');
 
         $I->fillField('name', 'TEST');
 
@@ -37,16 +39,24 @@ class GameCest
 
         $I->see('Winner', 'h2');
 
-        $I->amGoingTo('to test the game history page.');
+        $I->amGoingTo('test the game history page.');
 
         $I->click(['link' => 'Game History']);
 
         $I->see('Game History', 'h2');
 
-        $I->amGoingTo('to test the game detail page.');
+        $I->amGoingTo('test the game detail page.');
 
         $I->click(['link' => '1']);
 
         $I->see('detail history', 'h2');
+
+        $I->amGoingTo('test the 404 page.');
+
+        $I->amOnPage('a-page-that-does-not-exist');
+
+        $I->see('404 - Page Not Found', 'h2');
+
+        $I->amGoingTo('end testing.');
     }
 }

@@ -60,6 +60,7 @@ class Game
             $this->player1_card = array_shift($this->player1);
             $this->player2_card = array_shift($this->player2);
 
+            # Determine round winner
             if ($this->player1_card['value'] > $this->player2_card['value']) {
                 $this->result = 1;
                 $this->player1[] = $this->player1_card;
@@ -74,7 +75,7 @@ class Game
                 $this->result = $this->outcome[0];
             }
 
-            # Add the results of the round to the game array
+            # Add the results of the round to the game array for display
             $this->game[] = [
                 'round' => $this->round,
                 'player card' => $this->player1_card['rank'] . $this->player1_card['suit'],
@@ -85,6 +86,7 @@ class Game
                 'computer card count' => count($this->player2),
                 'result' => $this->result
             ];
+            # Add the results of the round to the rounds table
             $this->round_id = $dataSource->insert('rounds', [
                 'game_id' => $this->game_id,
                 'player_rank' => $this->player1_card['rank'],
@@ -99,7 +101,7 @@ class Game
             ]);
         }
 
-        # Update game record with results
+        # Update game record with game results
         $sql = 'UPDATE games SET rounds = :rounds, winner = :winner, player_count = :player_count, computer_count = :computer_count WHERE id = :id';
         $data = [
             'id' => $this->game_id,
@@ -110,14 +112,17 @@ class Game
         ];
         $dataSource->run($sql, $data);
     }
+
     public function getRounds()
     {
         return $this->game;
     }
+
     public function getPlayerName()
     {
         return $this->name;
     }
+
     public function getWinner()
     {
         if (end($this->game)['player card count'] > end($this->game)['computer card count']) {
@@ -127,11 +132,9 @@ class Game
         } else {
             $winner = $this->outcome[0];
         }
-
-        // # Format text
-        $winner = ucwords($winner);
         return $winner;
     }
+
     public function id()
     {
         return $this->game_id;
