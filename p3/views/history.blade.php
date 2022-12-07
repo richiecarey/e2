@@ -14,7 +14,7 @@
             <li>Project 3</li>
         </ul>
         @if (count($games)==1)
-        <h2 class="text-2xl">Game {{ $games[0]['id'] }} detail history</h2>
+        <h2 class="text-2xl" test="detail-history">Game {{ $games[0]['id'] }} detail history</h2>
         <ul class="list-disc pb-2 pl-6">
             <li>
                 <span class="text-blue-700">Winner:
@@ -96,7 +96,7 @@
 
 @if (count($games)>1)
 <section class="grid m-auto mb-8 place-items-center text-xs md:text-base max-w-screen-xl">
-    <h2 class="mb-2 text-2xl text-blue-700">Game History</h2>
+    <h2 class="mb-2 text-2xl text-blue-700" test="game-history">Game History</h2>
     <table class="table-fixed min-w-[99%] md:min-w-[100%] text-center">
         <thead>
             <tr class="bg-gray-900 text-zinc-50">
@@ -112,8 +112,7 @@
             @foreach ($games as $game)
             <tr class="odd:bg-slate-200 hover:bg-yellow-100">
                 <td>
-                    <a class="underline" href="?id={{$game['id']}}">{{ $game['id']
-                        }}</a>
+                    <a class="underline" href="?id={{$game['id']}}">{{ $game['id'] }}</a>
                 </td>
                 <td>
                     {{ $game['rounds'] }}

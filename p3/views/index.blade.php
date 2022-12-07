@@ -14,10 +14,10 @@
             <li>Project 3</li>
         </ul>
         @if ($app->old('game'))
-        <h2 class="text-2xl">Results</h2>
+        <h2 class="text-2xl" test="results">Results</h2>
         <ul class="list-disc pb-2 pl-6">
             <li>
-                <span class="text-blue-700">Winner:
+                <span class="text-blue-700" test="winner">Winner:
                     {{ $app->old('game')->getWinner() }}
                 </span>
             </li>
@@ -26,7 +26,7 @@
             </li>
         </ul>
         @else
-        <h2 class="text-2xl">Mechanics</h2>
+        <h2 class="text-2xl" test="mechanics">Mechanics</h2>
         <ul class="list-disc pb-2 pl-6">
             <li>Each player is dealt 26 cards from a shuffled deck</li>
             <li>For each round, player re-shuffles hand (to reduce stalemate risk) and plays top card.</li>
@@ -36,7 +36,7 @@
             </li>
             <li>Player with most cards at end of game wins</li>
         </ul>
-        <h2 class="text-2xl">Resources</h2>
+        <h2 class="text-2xl" test="resources">Resources</h2>
         <ul class="list-disc italic pb-2 pl-6">
             <li><a class="no-underline hover:underline" href="https://www.php.net/" target="_blank"
                     rel="noopener noreferrer">PHP.net</a></li>
@@ -78,11 +78,12 @@
                         </option>
                     </select>
                 </div>
-                <button class="hover:bg-gray-600 bg-gray-700 mt-4 text-slate-100 w-full" type='submit'>Play</button>
+                <button class="hover:bg-gray-600 bg-gray-700 mt-4 text-slate-100 w-full" type="submit"
+                    test="play">Play</button>
             </fieldset>
         </form>
         @if($app->errorsExist())
-        <ul class="text-red-500">
+        <ul class="text-red-500" test="validation-failed">
             @foreach($app->errors() as $error)
             <li>{{ $error }}</li>
             @endforeach

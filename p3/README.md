@@ -26,39 +26,70 @@
 root@hes:/var/www/e2/p3# php vendor/bin/codecept run Acceptance --steps
 Codeception PHP Testing Framework v5.0.5 https://helpukrainewin.org
 
-Tests.Acceptance Tests (1) -----------------------------------------------------------------------
-GameCest: Page loads
-Signature: Tests\Acceptance\GameCest:pageLoads
-Test: tests/Acceptance/GameCest.php:pageLoads
+Tests.Acceptance Tests (6) ---------------------------------------------------------------------------
+GameCest: Home page
+Signature: Tests\Acceptance\GameCest:homePage
+Test: tests/Acceptance/GameCest.php:homePage
 Scenario --
- I am going to begin testing.
  I am going to test the Project 3 homepage.
  I am on page "/"
  I see in title "DGMD E-3 :: Project 3 :: Richie Carey"
- I see "Mechanics","h2"
- I see "Resources","h2"
- I am going to test the form validation.
- I click "Play"
- I see "The value for name can not be blank"
- I am going to test the game play.
- I fill field "name","TEST"
- I click "Play"
- I see "Results","h2"
- I see "Winner","h2"
- I am going to test the game history page.
- I click {"link":"Game History"}
- I see "Game History","h2"
- I am going to test the game detail page.
- I click {"link":"1"}
- I see "detail history","h2"
- I am going to test the 404 page.
- I am on page "a-page-that-does-not-exist"
- I see "404 - Page Not Found","h2"
- I am going to end testing.
+ I see element "[test="mechanics"]"
+ I see element "[test="resources"]"
  PASSED
 
---------------------------------------------------------------------------------------------------
-Time: 00:00.222, Memory: 10.00 MB
+GameCest: Game play
+Signature: Tests\Acceptance\GameCest:gamePlay
+Test: tests/Acceptance/GameCest.php:gamePlay
+Scenario --
+ I am going to test the game play.
+ I am on page "/"
+ I fill field "name","TEST"
+ I click "[test="play"]"
+ I see element "[test="results"]"
+ I see element "[test="winner"]"
+ PASSED
 
-OK (1 test, 9 assertions)
+GameCest: Game history page
+Signature: Tests\Acceptance\GameCest:gameHistoryPage
+Test: tests/Acceptance/GameCest.php:gameHistoryPage
+Scenario --
+ I am going to test the game history page.
+ I am on page "/history"
+ I see element "[test="game-history"]"
+ PASSED
+
+GameCest: Game detail page
+Signature: Tests\Acceptance\GameCest:gameDetailPage
+Test: tests/Acceptance/GameCest.php:gameDetailPage
+Scenario --
+ I am going to test the game detail page.
+ I am on page "/history"
+ I click {"link":"1"}
+ I see element "[test="detail-history"]"
+ PASSED
+
+GameCest: Form validation
+Signature: Tests\Acceptance\GameCest:formValidation
+Test: tests/Acceptance/GameCest.php:formValidation
+Scenario --
+ I am going to test the form validation.
+ I am on page "/"
+ I click "[test="play"]"
+ I see element "[test="validation-failed"]"
+ PASSED
+
+GameCest: Page not found
+Signature: Tests\Acceptance\GameCest:pageNotFound
+Test: tests/Acceptance/GameCest.php:pageNotFound
+Scenario --
+ I am going to test the 404 page.
+ I am on page "a-page-that-does-not-exist"
+ I see element "[test="404-page-not-found"]"
+ PASSED
+
+------------------------------------------------------------------------------------------------------
+Time: 00:00.292, Memory: 10.00 MB
+
+OK (6 tests, 9 assertions)
 ```

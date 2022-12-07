@@ -9,54 +9,66 @@ class GameCest
     /**
      * Test that we can load the game home page and see the expected content
      */
-    public function pageLoads(AcceptanceTester $I)
+    public function homePage(AcceptanceTester $I)
     {
-        $I->amGoingTo('begin testing.');
-
         $I->amGoingTo('test the Project 3 homepage.');
 
         $I->amOnPage('/');
 
         $I->seeInTitle('DGMD E-3 :: Project 3 :: Richie Carey');
 
-        $I->see('Mechanics', 'h2');
+        $I->seeElement('[test="mechanics"]');
 
-        $I->see('Resources', 'h2');
-
-        $I->amGoingTo('test the form validation.');
-
-        $I->click('Play');
-
-        $I->see('The value for name can not be blank');
-
+        $I->seeElement('[test="resources"]');
+    }
+    public function gamePlay(AcceptanceTester $I)
+    {
         $I->amGoingTo('test the game play.');
+
+        $I->amOnPage('/');
 
         $I->fillField('name', 'TEST');
 
-        $I->click('Play');
+        $I->click('[test="play"]');
 
-        $I->see('Results', 'h2');
+        $I->seeElement('[test="results"]');
 
-        $I->see('Winner', 'h2');
-
+        $I->seeElement('[test="winner"]');
+    }
+    public function gameHistoryPage(AcceptanceTester $I)
+    {
         $I->amGoingTo('test the game history page.');
 
-        $I->click(['link' => 'Game History']);
+        $I->amOnPage('/history');
 
-        $I->see('Game History', 'h2');
-
+        $I->seeElement('[test="game-history"]');
+    }
+    public function gameDetailPage(AcceptanceTester $I)
+    {
         $I->amGoingTo('test the game detail page.');
+
+        $I->amOnPage('/history');
 
         $I->click(['link' => '1']);
 
-        $I->see('detail history', 'h2');
+        $I->seeElement('[test="detail-history"]');
+    }
+    public function formValidation(AcceptanceTester $I)
+    {
+        $I->amGoingTo('test the form validation.');
 
+        $I->amOnPage('/');
+
+        $I->click('[test="play"]');
+
+        $I->seeElement('[test="validation-failed"]');
+    }
+    public function pageNotFound(AcceptanceTester $I)
+    {
         $I->amGoingTo('test the 404 page.');
 
         $I->amOnPage('a-page-that-does-not-exist');
 
-        $I->see('404 - Page Not Found', 'h2');
-
-        $I->amGoingTo('end testing.');
+        $I->seeElement('[test="404-page-not-found"]');
     }
 }
