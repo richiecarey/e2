@@ -144,10 +144,10 @@
         <thead>
             <tr class="bg-gray-900 text-zinc-50">
                 <th>Round</th>
-                <th>Player 1</th>
-                <th>Player 2</th>
-                <th>Player 1 #</th>
-                <th>Player 2 #</th>
+                <th>Player</th>
+                <th>Computer</th>
+                <th>Player count</th>
+                <th>Computer count</th>
                 <th>Outcome</th>
             </tr>
         </thead>
