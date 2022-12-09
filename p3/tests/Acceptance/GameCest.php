@@ -59,6 +59,8 @@ class GameCest
 
         $I->amOnPage('/');
 
+        $I->amGoingTo('leave the required name field blank.');
+
         $I->click('[test="play"]');
 
         $I->seeElement('[test="validation-failed"]');

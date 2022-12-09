@@ -23,7 +23,6 @@
 ## Codeception testing output
 
 ```
-root@hes:/var/www/e2/p3# php vendor/bin/codecept run Acceptance --steps
 Codeception PHP Testing Framework v5.0.5 https://helpukrainewin.org
 
 Tests.Acceptance Tests (6) ---------------------------------------------------------------------------
@@ -75,6 +74,7 @@ Test: tests/Acceptance/GameCest.php:formValidation
 Scenario --
  I am going to test the form validation.
  I am on page "/"
+ I am going to leave the required name field blank.
  I click "[test="play"]"
  I see element "[test="validation-failed"]"
  PASSED
@@ -89,7 +89,7 @@ Scenario --
  PASSED
 
 ------------------------------------------------------------------------------------------------------
-Time: 00:00.292, Memory: 10.00 MB
+Time: 00:00.615, Memory: 10.00 MB
 
 OK (6 tests, 9 assertions)
 ```
