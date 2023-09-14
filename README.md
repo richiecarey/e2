@@ -1,3 +1,5 @@
 # Coursework for DGMD E-2
 
-## Richie Carey
+## Fall, 2023
+
+### Richie Carey
