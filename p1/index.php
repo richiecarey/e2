@@ -9,8 +9,8 @@ $outcome = ['tie', 'player one', 'player two'];
 $style = [
     '♠' => 'text-gray-900',
     '♣' => 'text-gray-900',
-    '♦' => 'text-red-500',
-    '♥' => 'text-red-500'
+    '♦' => 'text-[#d12d36]',
+    '♥' => 'text-[#d12d36]'
 ];
 
 # Construct a standard 52 card deck of cards

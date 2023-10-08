@@ -24,7 +24,7 @@
             </ul>
             <h2 class="text-2xl">Results</h2>
             <ul class="list-disc pb-2 pl-6">
-                <li><span class="text-blue-700">Game Winner: <?php echo $winner ?></span></li>
+                <li>Game Winner: <?php echo $winner ?></li>
                 <li>Rounds: <?php echo $round ?></li>
             </ul>
             <h2 class="text-2xl">Mechanics</h2>
@@ -38,21 +38,21 @@
             </ul>
             <h2 class="text-2xl">Resources</h2>
             <ul class="list-disc italic pb-2 pl-6">
-                <li><a class="no-underline hover:underline" href="https://www.php.net/" target="_blank"
+                <li><a class="underline hover:bg-yellow-100" href="https://www.php.net/" target="_blank"
                         rel="noopener noreferrer">PHP.net</a></li>
-                <li><a class="no-underline hover:underline"
+                <li><a class="underline hover:bg-yellow-100"
                         href="https://en.wikipedia.org/wiki/Playing_cards_in_Unicode" target="_blank"
                         rel="noopener noreferrer">Playing cards in Unicode - Wikipedia</a></li>
-                <li><a class="no-underline hover:underline" href="https://en.wikipedia.org/wiki/Standard_52-card_deck"
+                <li><a class="underline hover:bg-yellow-100" href="https://en.wikipedia.org/wiki/Standard_52-card_deck"
                         target="_blank" rel="noopener noreferrer">Standard 52-card deck - Wikipedia</a></li>
-                <li><a class="no-underline hover:underline"
+                <li><a class="underline hover:bg-yellow-100"
                         href="https://www.wimpyprogrammer.com/the-statistics-of-war-the-card-game" target="_blank"
                         rel="noopener noreferrer">The Statistics of War (the card game)</a></li>
             </ul>
         </div>
     </section>
     <section class="grid m-auto mb-8 place-items-center text-xs md:text-base max-w-screen-xl">
-        <h2 class="mb-2 text-2xl text-blue-700">Game Winner: <?php echo $winner ?></h2>
+        <h2 class="mb-2 text-2xl">Game Winner: <?php echo $winner ?></h2>
         <table class="table-fixed min-w-[99%] md:min-w-[100%] text-center">
             <thead>
                 <tr class="bg-gray-900 text-zinc-50">
@@ -66,7 +66,7 @@
             </thead>
             <tbody>
                 <?php foreach ($game as $round => $outcome) { ?>
-                <tr class="odd:bg-slate-200 hover:bg-yellow-100">
+                <tr class="odd:bg-slate-100 hover:bg-yellow-100 border-b-2 border-slate-200">
                     <td>
                         <?php echo ($outcome['round']) ?>
                     </td>
@@ -90,7 +90,7 @@
             </tbody>
         </table>
     </section>
-    <footer class="bg-slate-200 pb-8 pt-8 text-center">
+    <footer class="bg-slate-200 pb-8 pt-8 text-center text-sm">
         <p>Project 1 &#183; DGMD E-2</p>
         <p>Richie Carey</p>
     </footer>
