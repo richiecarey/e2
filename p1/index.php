@@ -4,7 +4,6 @@
 $game = [];
 
 # Set some global variables
-$title = 'Richie Carey | Project 1 | DGMD E-2';
 $outcome = ['tie', 'player one', 'player two'];
 $style = [
     '♠' => 'text-gray-900',

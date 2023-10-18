@@ -2,7 +2,7 @@
 <html lang='en'>
 
 <head>
-    <title><?php echo $title ?></title>
+    <title>Richie Carey | Project 1 | DGMD E-2</title>
     <meta charset='utf-8'>
     <script src="https://cdn.tailwindcss.com"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
