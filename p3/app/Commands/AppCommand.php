@@ -4,6 +4,9 @@ namespace App\Commands;
 
 class AppCommand extends Command
 {
+    private $games;
+    private $rounds;
+    
     public function migrate()
     {
         $this->app->db()->createTable('games', [

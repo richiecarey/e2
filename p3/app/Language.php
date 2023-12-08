@@ -4,6 +4,8 @@ namespace App;
 
 class Language
 {
+    private $outcome;
+    
     public function __construct()
     {
         $this->outcome = ['Tie', 'Player', 'Computer'];

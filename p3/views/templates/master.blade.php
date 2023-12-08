@@ -23,11 +23,10 @@
 
     <main>
         @yield('content')
-        <footer class="text-xs pb-8 pt-8 text-center">
-            <p>Project 3 &#183; DGMD E-2</p>
+        <footer class="pb-8 pt-8 text-center text-sm">
+            <p>Project 3 · DGMD E-2</p>
             <p>Richie Carey</p>
         </footer>
-
     </main>
 
     @yield('body')

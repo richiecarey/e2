@@ -9,5 +9,5 @@ modules:
     enabled:
         - Asserts
         - PhpBrowser:
-              url: http://e2p3.richiecarey.com/
+              url: http://e2p3.careyinternet.com/
 step_decorators: ~

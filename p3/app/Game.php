@@ -15,14 +15,14 @@ class Game
     private $player1 = [];
     private $player2 = [];
     private $maxRounds = 0;
-    private $name = "";
+    private $name;
     private $style;
     private $language;
     private $outcome;
     private $player1_card;
     private $player2_card;
     private $result;
-    private $round_id;
+    public $round_id;
 
     public function __construct($dataSource, $name, $maxRounds)
     {
