@@ -1,7 +1,7 @@
 # Project 3
 
 -   By: Richie Carey
--   URL: <http://e2p3.richiecarey.com/>
+-   URL: <http://e2p3.careyinternet.com/>
 
 ## Graduate requirement
 
@@ -23,9 +23,9 @@
 ## Codeception testing output
 
 ```
-Codeception PHP Testing Framework v5.0.5 https://helpukrainewin.org
+Codeception PHP Testing Framework v5.0.12 https://stand-with-ukraine.pp.ua
 
-Tests.Acceptance Tests (6) ---------------------------------------------------------------------------
+Tests.Acceptance Tests (6) -----------------------------------------------------------
 GameCest: Home page
 Signature: Tests\Acceptance\GameCest:homePage
 Test: tests/Acceptance/GameCest.php:homePage
@@ -35,7 +35,7 @@ Scenario --
  I see in title "DGMD E-3 :: Project 3 :: Richie Carey"
  I see element "[test="mechanics"]"
  I see element "[test="resources"]"
- PASSED
+ PASSED 
 
 GameCest: Game play
 Signature: Tests\Acceptance\GameCest:gamePlay
@@ -47,7 +47,7 @@ Scenario --
  I click "[test="play"]"
  I see element "[test="results"]"
  I see element "[test="winner"]"
- PASSED
+ PASSED 
 
 GameCest: Game history page
 Signature: Tests\Acceptance\GameCest:gameHistoryPage
@@ -56,7 +56,7 @@ Scenario --
  I am going to test the game history page.
  I am on page "/history"
  I see element "[test="game-history"]"
- PASSED
+ PASSED 
 
 GameCest: Game detail page
 Signature: Tests\Acceptance\GameCest:gameDetailPage
@@ -66,7 +66,7 @@ Scenario --
  I am on page "/history"
  I click {"link":"1"}
  I see element "[test="detail-history"]"
- PASSED
+ PASSED 
 
 GameCest: Form validation
 Signature: Tests\Acceptance\GameCest:formValidation
@@ -77,7 +77,7 @@ Scenario --
  I am going to leave the required name field blank.
  I click "[test="play"]"
  I see element "[test="validation-failed"]"
- PASSED
+ PASSED 
 
 GameCest: Page not found
 Signature: Tests\Acceptance\GameCest:pageNotFound
@@ -86,10 +86,10 @@ Scenario --
  I am going to test the 404 page.
  I am on page "a-page-that-does-not-exist"
  I see element "[test="404-page-not-found"]"
- PASSED
+ PASSED 
 
-------------------------------------------------------------------------------------------------------
-Time: 00:00.615, Memory: 10.00 MB
+--------------------------------------------------------------------------------------
+Time: 00:00.483, Memory: 10.00 MB
 
 OK (6 tests, 9 assertions)
 ```

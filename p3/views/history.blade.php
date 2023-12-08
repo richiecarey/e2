@@ -10,8 +10,11 @@
     class="bg-slate-200 flex m-auto items-start mb-4 md:py-2 md:mt-2 place-items-center text-xs md:text-base max-w-screen-xl">
     <div class="flex-1 min-w-[60%] md:min-w-[80%] p-4">
         @if (count($games)==1)
-        <h2 class="text-2xl" test="detail-history">Game {{ $games[0]['id'] }} detail history</h2>
+        <h2 class="text-2xl" test="detail-history">Game {{ $games[0]['id'] }}</h2>
         <ul class="list-disc pb-2 pl-6">
+            <li>
+                <span>{{ date("F j, Y, g:i a", $games[0]['timestamp']) }}</span>
+            </li>
             <li>
                 <span class="text-blue-700">Winner:
                     {{ $games[0]['winner'] }}
@@ -19,9 +22,6 @@
             </li>
             <li>
                 <span>Rounds: {{ $games[0]['rounds'] }}</span>
-            </li>
-            <li>
-                <span>{{ date("F j, Y, g:i a", $games[0]['timestamp']) }}</span>
             </li>
         </ul>
         @else
