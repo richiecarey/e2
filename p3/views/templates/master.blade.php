@@ -24,7 +24,7 @@
     <main>
         @yield('content')
         <footer class="pb-8 pt-8 text-center text-sm">
-            <p>Project 3 · DGMD E-2</p>
+            <p>DGMD E-2 · Project 3</p>
             <p>Richie Carey</p>
         </footer>
     </main>
