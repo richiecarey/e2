@@ -69,14 +69,14 @@
 @if (count($games)>1)
 <section class="grid m-auto mb-8 place-items-center text-xs md:text-base max-w-screen-xl">
     <h2 class="mb-2 text-2xl text-blue-700" test="game-history">Game History</h2>
-    <table class="table-fixed min-w-[99%] md:min-w-[100%] text-center">
+    <table class="table-auto min-w-[99%] md:min-w-[100%] text-center">
         <thead>
             <tr class="bg-gray-900 text-zinc-50">
-                <th class="w-1/6">Game #</th>
-                <th class="w-1/6">Rounds</th>
-                <th class="w-1/6">Player count</th>
-                <th class="w-1/6">Computer count</th>
-                <th class="w-1/6">Winner</th>
+                <th>Game #</th>
+                <th>Rounds</th>
+                <th>Player count</th>
+                <th>Computer count</th>
+                <th>Winner</th>
                 <th>Date</th>
             </tr>
         </thead>
